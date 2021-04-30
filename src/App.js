@@ -7,7 +7,7 @@ class App extends React.Component {
     emp: []
   }
 
-  handleData = (childData) => {
+  handleAdd = (childData) => {
     let ar = this.state.emp;
       ar.push(childData);
     this.setState(() => ({
@@ -15,12 +15,18 @@ class App extends React.Component {
     }));
   }
 
+  handleDelete = (childData) => {
+    let rem = this.state.emp.splice(childData, 1);
+    this.setState(() => ({
+      emp: rem
+    }));
+  }
+
   render() {
     return (
       <div>
-        <h1>App</h1>
-        <AddEmployee employeeData = {this.handleData}/>
-        <ShowEmployee employeeDetails = {this.state.emp}/>
+        <AddEmployee employeeData = {this.handleAdd}/>
+        <ShowEmployee employeeDetails = {this.state.emp} employeeDelete = {this.handleDelete}/>
       </div>
     );
   }

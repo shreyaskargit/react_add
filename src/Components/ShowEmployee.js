@@ -8,9 +8,14 @@ export default class ShowEmployee extends React.Component{
 componentDidMount = () => {
     console.log(this.props);
 
-    this.setState(prevState => ({
+    this.setState(() => ({
         Emp: this.props.employeeDetails
       }))
+}
+
+onDelete = (e) => {
+  // console.log(e.target.value);
+  this.props.employeeDelete(parseInt(e.target.value));
 }
 
 
@@ -22,6 +27,7 @@ componentDidMount = () => {
                       <td>{item.empId}</td>
                       <td>{item.empName}</td>
                       <td>{item.empSalary}</td>
+                      <button onClick={this.onDelete} value={key}>Delete</button>
                     </tr>
                   );
                 })
@@ -38,6 +44,7 @@ componentDidMount = () => {
                   <th>Employee Id</th>
                   <th>Employee Name</th>
                   <th>Employee Price</th>
+                  <th>Action</th>
                 </tr>
                 {this.renderData()}
               </tbody>
