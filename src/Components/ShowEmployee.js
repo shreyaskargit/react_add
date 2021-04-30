@@ -14,7 +14,6 @@ componentDidMount = () => {
 }
 
 onDelete = (e) => {
-  // console.log(e.target.value);
   this.props.employeeDelete(parseInt(e.target.value));
 }
 
@@ -27,7 +26,7 @@ onDelete = (e) => {
                       <td>{item.empId}</td>
                       <td>{item.empName}</td>
                       <td>{item.empSalary}</td>
-                      <button onClick={this.onDelete} value={key}>Delete</button>
+                      <td><button onClick={this.onDelete} value={key}>Delete</button></td>
                     </tr>
                   );
                 })

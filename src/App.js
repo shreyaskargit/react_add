@@ -16,9 +16,10 @@ class App extends React.Component {
   }
 
   handleDelete = (childData) => {
-    let rem = this.state.emp.splice(childData, 1);
+    const rem = this.state
+    rem.emp.splice(childData, 1);
     this.setState(() => ({
-      emp: rem
+      emp: rem.emp
     }));
   }
 
