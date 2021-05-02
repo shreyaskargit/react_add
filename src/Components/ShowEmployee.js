@@ -6,7 +6,6 @@ export default class ShowEmployee extends React.Component{
     }
 
 componentDidMount = () => {
-    console.log(this.props);
 
     this.setState(() => ({
         Emp: this.props.employeeDetails
@@ -42,7 +41,7 @@ onDelete = (e) => {
                 <tr>
                   <th>Employee Id</th>
                   <th>Employee Name</th>
-                  <th>Employee Price</th>
+                  <th>Employee Salary</th>
                   <th>Action</th>
                 </tr>
                 {this.renderData()}
